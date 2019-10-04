@@ -81,7 +81,7 @@ This library required **ESP8266 Core SDK version 2.4.0 and above**.
 
 For Arduino IDE, ESP8266 Core SDK can be installed through **Boards Manager**. 
 
-For PlatfoemIO IDE, ESP8266 Core SDK can be installed through **PIO Home** > **Platforms** > **Espressif 8266**.
+For PlatformIO IDE, ESP8266 Core SDK can be installed through **PIO Home** > **Platforms** > **Espressif 8266**.
 
 
 
