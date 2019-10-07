@@ -4,13 +4,14 @@
 Google's Firebase Realtime Database Arduino Library for ESP8266 v 2.4.2
 
 
-This library supports ESP8266 MCU from Espressif. The following are platforms which library are also available.
+This library supports ESP8266 MCU from Espressif.    
+Similar MCUs are supported by the following libraries:
 
-* [ESP32 Firebase Arduino library]( https://github.com/mobizt/Firebase-ESP32)
+* For ESP32 - [Firebase-ESP32]( https://github.com/mobizt/Firebase-ESP32)
 
-* [Arduino MKR WiFi 1010, Arduino MKR VIDOR 4000 and Arduino UNO WiFi Rev.2](https://github.com/mobizt/Firebase-Arduino-WiFiNINA)
+* For Arduino MKR WiFi 1010, Arduino MKR VIDOR 4000 and Arduino UNO WiFi Rev.2 - [Firebase-Arduino-WifiNINA](https://github.com/mobizt/Firebase-Arduino-WiFiNINA)
 
-* [Arduino WiFi Shield 101 and Arduino MKR1000 WIFI](https://github.com/mobizt/Firebase-Arduino-WiFi101)
+* For Arduino WiFi Shield 101 and Arduino MKR1000 WIFI - [Firebase-Arduino-Wifi101](https://github.com/mobizt/Firebase-Arduino-WiFi101)
 
 
 
@@ -24,64 +25,61 @@ This library supports ESP8266 MCU from Espressif. The following are platforms wh
 ## Features
 
 
-* **Not Required Fingerprint and Certificate, CA certificate can be set for more secure connection.**
+* Fingerprint and certificate authorization not required (CA cert can be set for more security)
 
-* **Completed Google's Firebase RTDB REST APIs Implementation.**
+* Supports CA certificate file reading from SD and SPIFFS (for Core SDK v2.5.x).
 
-* **No Delay for Contiuous Read and Store Data.**
+* A complete implementation of Google's Firebase RTDB REST API
 
-* **Supports Read (get), Store (set), Append (push), Patch (update) and Delete Data**
+* Supports continuous read and write with no delay
 
-* **Supports Primitive data types: Integer, Float, Double, Boolean, String and JSON.**
+* Supports Read (get), Store (set), Append (push), Patch (update) and Delete operations
 
-* **Supports BLOB and File Stream Data.**
+* Supported datatypes: 
+  * Integer, Float, Double, Boolean, String
+  * JSON - both ArduinoJson (via FirebaseJson) and String JSON are supported
+  * BLOB and File Stream Data.
 
-* **Support Read and Write Database Rules.**
+* Built-in JSON parser and builder for easy coding
 
-* **Supports Conditional Requests (ETag).**
+* Supports Read and Write Database Rules
 
-* **Supports Set and Get Data Priority.**
+* Supports Conditional Requests (ETag)
 
-* **Supports Read and Store Data Limits.**
+* Supports Set and Get Data Priority
 
-* **Supports Set and Push Server's Timestamp.**
+* Supports Read and Store Data Limits
 
-* **Supports Classic HTTP requests Override.**
+* Supports Set and Push Server Timestamp
 
-* **Supports Error Retry and Restorable Queues.** 
+* Supports Classic HTTP requests Override (useful if your device is behind a firewall)
 
-* **Supports Query or Data Filtering.**
+* Supports Error Retry and Restorable Queues
 
-* **Supports Automatic Stream Resuming.** 
+* Supports Query or Data Filtering
 
-* **Supports Multiple Streamings.**
+* Supports Automatic Stream Resuming
 
-* **Supports Stream Event Callbacks**
+* Supports Multiple Streamings
 
-* **Supports Pause and Resume Firebase Operations.**
+* Supports Stream Event Callbacks
 
-* **Supports Data Backup and Restore.**
+* Supports Pause and Resume Firebase Operations
 
-* **Supports Firebase Cloud Messaging.**
+* Supports Data Backup and Restore
 
-* **Supports SD and SPIFFS's CA certificate file (for Core SDK v2.5.x).**
-
-* **Built-in JSON parser and builder.**
-
-
-
-
+* Supports Firebase Cloud Messaging (FCM)
 
 
 
 ## Dependencies
 
 
-This library required **ESP8266 Core SDK version 2.4.0 and above**.
+This library requires the ESP8266 Core SDK version **2.4.0** or above.
 
-For Arduino IDE, ESP8266 Core SDK can be installed through **Boards Manager**. 
+For Arduino IDE, the ESP8266 Core SDK can be installed through the Boards Manager. 
 
-For PlatformIO IDE, ESP8266 Core SDK can be installed through **PIO Home** > **Platforms** > **Espressif 8266**.
+For PlatformIO IDE, the ESP8266 Core SDK can be installed through `PIO Home -> Platforms -> Espressif 8266`
 
 
 
@@ -92,36 +90,34 @@ For PlatformIO IDE, ESP8266 Core SDK can be installed through **PIO Home** > **P
 ### Using Library Manager
 
 
-At Arduino IDE goto menu **Sketch** -> **Include Library** -> **Manage Libraries...**
+For Arduino IDE, 
+1. Go to `Sketch -> Include Library -> Manage Libraries...` from the IDE menu.
 
-In Library Manager Window, search **"firebase"** in the search form then select **"Firebase ESP8266 Client"**. 
+2. In the Library Manager Window, search for "**Firebase ESP8266 Client**", and install the latest version of the library.
 
-Click **"Install"** button.
+For PlatformIO IDE,
+- Use the following command:   
+  > `pio lib install "Firebase ESP8266 Client"`
 
+- Alternatively, navigate to `PIO Home -> Library -> Registry`, then search for "**Firebase ESP8266 Client**".
 
-
-For PlatformIO IDE, using the following command.
-
-**pio lib install "Firebase ESP8266 Client""**
-
-Or at **PIO Home** -> **Library** -> **Registry** then search **Firebase ESP8266 Client**.
-
-[More on PlatformIO...](https://platformio.org/lib/show/6247/Firebase%20ESP8266%20Client)
+- [More docs on PlatformIO](https://platformio.org/lib/show/6247/Firebase%20ESP8266%20Client)
 
 
-### Manual installing
+### Manual installation
 
 
-For Arduino IDE, click on **Clone or download** dropdown at the top of repository, select **Download ZIP** 
+From Github, click on the "Clone or download" dropdown button, then select "Download ZIP". Save the file at a convenient location.
 
-From Arduino IDE, goto menu **Sketch** -> **Include Library** -> **Add .ZIP Library...**.
+For the Arduino IDE,
+1. Go to  `Sketch -> Include Library -> Add .ZIP Library...`
 
-Choose **Firebase-ESP8266-master.zip** that previously downloaded.
+2. Choose the `Firebase-ESP8266-master.zip` file that was just downloaded from Github.
 
-Go to menu **Files** -> **Examples** -> **Firebase-ESP8266-master** and choose one from examples.
+3. Go to menu **Files** -> **Examples** -> **Firebase-ESP8266-master** and choose one from examples.
 
 
-For PlatformIO, create folder **"Firebase-ESP8266"** in folder **"lib"** and save **[these files](https://github.com/mobizt/Firebase-ESP8266/tree/master/src)** in there.
+For PlatformIO, create a folder named "Firebase-ESP8266" in the IDE's `lib` folder and save **[these files](https://github.com/mobizt/Firebase-ESP8266/tree/master/src)** in there.
 
 
 
